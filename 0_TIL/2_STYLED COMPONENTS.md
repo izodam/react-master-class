@@ -11,11 +11,8 @@
 function App() {
   return (
     <div style={{ display: "flex" }}>
-            <div style={{ backgroundColor: "teal", width: 100, height: 100 }}></div>
-
-            <div style={{ backgroundColor: "tomato", width: 100, height: 100 }}></div>
-
-         {" "}
+      <div style={{ backgroundColor: "teal", width: 100, height: 100 }}></div>
+      <div style={{ backgroundColor: "tomato", width: 100, height: 100 }}></div>
     </div>
   );
 }
@@ -57,8 +54,8 @@ const BoxTwo = styled.div`
 function App() {
   return (
     <Father>
-            <BoxOne />
-            <BoxTwo />   {" "}
+      <BoxOne />
+      <BoxTwo />
     </Father>
   );
 }
@@ -277,10 +274,10 @@ const Box = styled.div`
 
 ```
 span {
-	font-size: 36px;
-	&:hover {
-		font-size: 60px;
-	}
+  font-size: 36px;
+  &:hover {
+    font-size: 60px;
+  }
 }
 ```
 
