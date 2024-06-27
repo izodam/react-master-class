@@ -7,16 +7,17 @@
 
 우선 style-component를 적용하기 전 화면을 보자면,
 
-```react
+```js
 function App() {
+  return (
+    <div style={{ display: "flex" }}>
+            <div style={{ backgroundColor: "teal", width: 100, height: 100 }}></div>
 
-  return (
+            <div style={{ backgroundColor: "tomato", width: 100, height: 100 }}></div>
 
-    <div style={{ display: "flex" }}>
-      <div style={{ backgroundColor: "teal", width: 100, height: 100 }}></div>
-      <div style={{ backgroundColor: "tomato", width: 100, height: 100 }}></div>
-    </div>
-  );
+         {" "}
+    </div>
+  );
 }
 
 export default App;
@@ -34,7 +35,7 @@ export default App;
 
 위의 teal 색의 박스와 tomato 색의 박스 코드에 style components를 적용하면
 
-```react
+```js
 import styled from "styled-components";
 
 const Father = styled.div`
@@ -54,12 +55,12 @@ const BoxTwo = styled.div`
 `;
 
 function App() {
-  return (
-    <Father>
-      <BoxOne />
-      <BoxTwo />
-    </Father>
-  );
+  return (
+    <Father>
+            <BoxOne />
+            <BoxTwo />   {" "}
+    </Father>
+  );
 }
 
 export default App;
@@ -82,7 +83,7 @@ class명을 알아서 만들어서 적어주고 있음!!
 
 그러면 props를 이용할 것이다!
 
-```react
+```js
 const Box = styled.div`
   background-color: ${(props) => props.bgColor};
   width: 100px;
@@ -103,7 +104,7 @@ function App() {
 
 만약 원을 그리고 싶다 하면,
 
-```react
+```js
 const Circle = styled.div`
   background-color: ${(props) => props.bgColor};
   width: 100px;
@@ -116,7 +117,7 @@ const Circle = styled.div`
 
 -> styled 뒤에 html 요소를 없애고 괄호안에 확장하고 싶은 컴포넌트를 넣어주면 된다!
 
-```react
+```js
 const Circle = styled(Box)`
   border-radius: 50px;
 `;
@@ -127,7 +128,7 @@ const Circle = styled(Box)`
 같은 스타일을 사용하는데 html 요소만 바꾸고 싶다면
 as를 사용하면 된다!
 
-```react
+```js
 const Btn = styled.button`
   color: white;
   background-color: tomato;
@@ -141,7 +142,9 @@ function App() {
   return (
     <Father>
       <Btn>Log in</Btn>
-      <Btn as="a" href="/">Log in</Btn>
+      <Btn as="a" href="/">
+        Log in
+      </Btn>
     </Father>
   );
 }
@@ -160,7 +163,7 @@ a 태그로 바뀌어 있는 것을 확인 할 수 있다.
 
 attrs를 사용해서 해당 컴포넌트의 속성값을 한번만 적어도 모든 컴포넌트에 해당 속성값이 적용되게 된다.
 
-```react
+```js
 const Input = styled.input.attrs({ required: true, minLength: "10" })`
   background-color: tomato;
 `;
@@ -184,7 +187,7 @@ function App() {
 
 애니메이션을 주는 방법은 helper function을 import 해주는 것!
 
-```react
+```js
 import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
@@ -225,7 +228,7 @@ function App() {
 
 ### pseudo selectors
 
-```react
+```js
 const Box = styled.div`
   height: 200px;
   width: 200px;
@@ -235,7 +238,6 @@ const Box = styled.div`
   align-items: center;
   animation: ${ratationAnimation} 1s linear infinite;
 `;
-
 
 function App() {
   return (
@@ -288,7 +290,7 @@ tag name에 의존하지 않고 컴포넌트를 찾는 방법
 
 -> 새로운 컴포넌트 생성 후, Box에서는 해당 컴포넌트를 적어주기
 
-```react
+```js
 const Emoji = styled.span`
   font-size: 36px;
 `;
