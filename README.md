@@ -2,8 +2,8 @@
 
 ## 필기 정리
 
-| chapter |         name          |                     link                     |
-| :-----: | :-------------------: | :------------------------------------------: |
-|   02    | style components 사용 | [보러가기](./0_TIL/2_STYLED%20COMPONENTS.md) |
-|   03    |                       |                   중앙정렬                   |
-|   04    |                       |                   중앙정렬                   |
+| chapter |       name       |                     link                      |
+| :-----: | :--------------: | :-------------------------------------------: |
+|   02    | style components | [보러가기](./00_TIL/2_STYLED%20COMPONENTS.md) |
+|   03    |    typescript    | [보러가기](./00_TIL/2_STYLED%20COMPONENTS.md  |
+|   04    |                  |                                               |
