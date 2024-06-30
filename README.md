@@ -5,5 +5,5 @@
 | chapter |       name       |                     link                      |
 | :-----: | :--------------: | :-------------------------------------------: |
 |   02    | style components | [보러가기](./00_TIL/2_STYLED%20COMPONENTS.md) |
-|   03    |    typescript    | [보러가기](./00_TIL/2_STYLED%20COMPONENTS.md  |
+|   03    |    typescript    |     [보러가기](./00_TIL/3_Typescript.md)      |
 |   04    |                  |                                               |
