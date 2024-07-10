@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Router from "./Router";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import HelmetComponent from "./helmet";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { darkTheme, lightTheme } from "./theme";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "./atoms";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
@@ -66,12 +69,16 @@ a{
 `;
 
 function App() {
+  const isDark = useRecoilValue(isDarkAtom);
   return (
     <>
-      <HelmetComponent />
-      <GlobalStyle />
-      <Router />
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <HelmetComponent />
+
+        <GlobalStyle />
+        <Router />
+        <ReactQueryDevtools initialIsOpen={true} />
+      </ThemeProvider>
     </>
   );
 }
