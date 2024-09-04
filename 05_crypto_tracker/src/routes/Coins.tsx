@@ -23,9 +23,10 @@ const Header = styled.header`
 const CoinsList = styled.ul``;
 
 const Coin = styled.li`
-  background-color: white;
+  background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
   border-radius: 15px;
+  border: 1px solid white;
   margin-bottom: 10px;
   a {
     display: flex;
@@ -54,6 +55,8 @@ const Img = styled.img`
   width: 25px;
   height: 25px;
   margin-right: 10px;
+  background-color: gray;
+  border-radius: 100px;
 `;
 
 interface CoinInterface {
@@ -63,15 +66,12 @@ interface CoinInterface {
   image: string;
 }
 
-interface ICoinsProps {}
+// interface ICoinsProps {}
 
-function Coins({}: ICoinsProps) {
+function Coins() {
   const setDarkAtom = useSetRecoilState(isDarkAtom);
   const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
-  const { isLoading, data } = useQuery<CoinInterface[]>(
-    "allCoins",
-    fetchCryptosFromCoinGecko
-  );
+  const { isLoading, data } = useQuery<CoinInterface[]>("allCoins", fetchCoins);
   // const [coins, setCoins] = useState<CoinInterface[]>([]);
   // const [loading, setLoading] = useState(true);
 
@@ -85,9 +85,6 @@ function Coins({}: ICoinsProps) {
   // }, []);
   return (
     <Container>
-      <Helmet>
-        <title>Coins</title>
-      </Helmet>
       <Header>
         <Title>Coins</Title>
         <button onClick={toggleDarkAtom}>Toggle Mode</button>
@@ -104,7 +101,9 @@ function Coins({}: ICoinsProps) {
                   state: { name: coin.name },
                 }}
               >
-                <Img src={coin.image} />
+                <Img
+                  src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                />
                 {coin.name} &rarr;
               </Link>
             </Coin>

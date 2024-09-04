@@ -1,6 +1,6 @@
 ## Recoil
 
-Reactd에서 사용하는 state management library
+React에서 사용하는 state management library
 
 ### recoil을 사용하지 않고 dark 모드를 만들어보자
 
@@ -94,3 +94,7 @@ function App() {
 useRecoilValue = value를 가져옴
 
 setter function = value를 설정하는 function -> react의 setState와 같은 방식으로 작동
+
+useSetRecoilState = 매개변수로 atom을 받고, atom을 변경하는 함수를 반환 (atom의 값 변환)
+
+# Todo app
