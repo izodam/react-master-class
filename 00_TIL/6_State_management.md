@@ -98,3 +98,38 @@ setter function = value를 설정하는 function -> react의 setState와 같은 
 useSetRecoilState = 매개변수로 atom을 받고, atom을 변경하는 함수를 반환 (atom의 값 변환)
 
 # Todo app
+
+기본 세팅
+
+```ts
+// ToDoList.tsx
+
+import { useState } from "react";
+
+function ToDoList() {
+  const [todo, setTodo] = useState("");
+  const onChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const {
+      currentTarget: { value },
+    } = event;
+
+    setTodo(value);
+  };
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(todo);
+  };
+
+  return (
+    <div>
+      <form onSubmit={onSubmit}>
+        <input value={todo} onChange={onChange} placeholder="Write a to do" />
+        <button>Add</button>
+      </form>
+    </div>
+  );
+}
+
+export default ToDoList;
+```
